@@ -30,7 +30,7 @@ Un clon simple del popular joc **Timberman**, desenvolupat durant les classes de
 - **Score Text** – Mostra la puntuació actual.
 
 ## Millores properes
-- [ x ] Afegir sons al morir el jugador, acabar-se el temps, etc..
+- [ ] Afegir sons al morir el jugador, acabar-se el temps, etc..
 - [ ] Properament mes 
 
 
