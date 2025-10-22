@@ -7,6 +7,7 @@
 #include <ctime>
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 // Espais de noms
 using namespace std;
@@ -130,6 +131,22 @@ int main()
     scoreText.setPosition({ 20, 20 });
 
     // -------------------------------------
+    // Audio
+    // -------------------------------------
+
+    // Audio del jugador tallant
+    SoundBuffer chopBuffer("sound/chop.wav");
+    Sound chopSound(chopBuffer);
+
+    // Audio de fi del temps
+    SoundBuffer outTimeBuffer("sound/out_of_time.wav");
+    Sound outTimeSound(outTimeBuffer);
+
+    // Audio de mort
+    SoundBuffer deathBuffer("sound/death.wav");
+    Sound deathSound(deathBuffer);
+
+    // -------------------------------------
     // Variables de joc
     // -------------------------------------
     Clock clock;
@@ -223,6 +240,8 @@ int main()
                     logActive = true;
 
                     acceptInput = false;
+
+                    chopSound.play();
                 }
 
                 if (key->scancode == Keyboard::Scancode::Right) {
@@ -246,6 +265,8 @@ int main()
                     logActive = true;
 
                     acceptInput = false;
+
+                    chopSound.play();
                 }
             }
         }
@@ -266,6 +287,8 @@ int main()
 
                 textRect = messageText.getLocalBounds();
                 messageText.setOrigin({ (textRect.position.x + (textRect.size.x / 2.0f)), (textRect.position.y + (textRect.size.y / 2.0f)) });
+            
+                outTimeSound.play();
             }
 
             // Entitats mobils
@@ -304,6 +327,8 @@ int main()
 
                 // Canvia el text del missatge
                 messageText.setString("SQUISHED!");
+
+                deathSound.play();
             }
         }
 

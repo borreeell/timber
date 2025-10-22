@@ -30,8 +30,11 @@ Un clon simple del popular joc **Timberman**, desenvolupat durant les classes de
 - **Score Text** – Mostra la puntuació actual.
 
 ## Millores properes
-- [ ] Afegir sons al morir el jugador, acabar-se el temps, etc..
-- [ ] Properament mes 
+- [x] Afegir sons al morir el jugador, acabar-se el temps, etc..
+- [ ] Properament mes
+
+## Reportar errors
+Per reportar un error, informar sobre algun bug o alguna cosa que creus que es pugui millorar del joc, pots obrir un issue aqui: [Obrir issue](https://github.com/borreeell/timber/issues)
 
 
 
