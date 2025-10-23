@@ -116,12 +116,13 @@ int main()
     // -------------------------------------
     Font font("fonts/KOMIKAP_.ttf");
     Text messageText(font);
-    FloatRect textRect = messageText.getLocalBounds();
     Text scoreText(font);
     
     messageText.setString("Press Enter to start!");
     messageText.setCharacterSize(75);
     messageText.setFillColor(Color::White);
+    
+    FloatRect textRect = messageText.getLocalBounds();
     messageText.setOrigin({ textRect.position.x + textRect.size.x / 2.0f, textRect.position.y + textRect.size.y / 2.0f });
     messageText.setPosition({ 1920 / 2, 1080 / 2 });
 
@@ -350,9 +351,11 @@ int main()
         window.draw(spriteTree2);
         window.draw(spriteTree3);
 
-        window.draw(spritePlayer);
+        if (!paused) {
+            window.draw(spritePlayer);
 
-        window.draw(spriteAxe);
+            window.draw(spriteAxe);
+        }
 
         window.draw(spriteLog);
 
