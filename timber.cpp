@@ -61,7 +61,7 @@ int main()
     // Creacio i elements visuals
     // -------------------------------------
     VideoMode vm({ 1920, 1080 });
-    RenderWindow window(vm, "Timber", State::Windowed);
+    RenderWindow window(vm, "Timber", State::Fullscreen);
     
     // Textura del fons
     Texture textureBackground("graphics/background.png");
