@@ -36,7 +36,6 @@ Un clon simple del popular joc **Timberman**, desenvolupat durant les classes de
 - [x] Corregir error al tallar els troncs
 - [x] Controlar la frequencia d'actualitzacio de puntuacio i FPS
 - [X] Afegir HUD amb dades (FPS, temps)
-- [ ] Incrementar dificultat segons puntuacio
 
 ## Reportar errors
 Per reportar un error, informar sobre algun bug o alguna cosa que creus que es pugui millorar del joc, pots obrir un issue aqui: [Obrir issue](https://github.com/borreeell/timber/issues)
