@@ -351,6 +351,7 @@ int main()
         window.draw(spriteTree2);
         window.draw(spriteTree3);
 
+        // Mostra el jugador nomes si no esta pausat
         if (!paused) {
             window.draw(spritePlayer);
 
