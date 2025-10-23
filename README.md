@@ -32,9 +32,10 @@ Un clon simple del popular joc **Timberman**, desenvolupat durant les classes de
 ## Millores properes
 - [x] Afegir sons al morir el jugador, acabar-se el temps, etc..
 - [x] Corregir error del jugador despres de morir
-- [ ] Controlar la frequencia d'actualitzacio de puntuacio i FPS
-- [ ] Afegir HUD amb dades (FPS, temps, vides, dificultat)
-- [ ] Nous NPCs
+- [x] Corregir errors amb els textos del HUD
+- [x] Corregir error al tallar els troncs
+- [x] Controlar la frequencia d'actualitzacio de puntuacio i FPS
+- [X] Afegir HUD amb dades (FPS, temps)
 - [ ] Incrementar dificultat segons puntuacio
 
 ## Reportar errors

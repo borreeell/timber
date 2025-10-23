@@ -25,6 +25,8 @@ const float timeBarHeight = 80;
 const float AXE_POSITION_LEFT = 700;
 const float AXE_POSITION_RIGHT = 1075;
 
+const float FPS_UPDATE_INTERVAL = 5.0f; // Cada 0.5 segons
+
 enum class side { LEFT, RIGHT, NONE };
 
 // -------------------------------------
@@ -115,8 +117,11 @@ int main()
     // Textos i marcador
     // -------------------------------------
     Font font("fonts/KOMIKAP_.ttf");
+    Font font2("fonts/04B_11__.ttf");
+
     Text messageText(font);
     Text scoreText(font);
+    Text fpsText(font2);
     
     messageText.setString("Press Enter to start!");
     messageText.setCharacterSize(75);
@@ -130,6 +135,11 @@ int main()
     scoreText.setString("Score = 0");
     scoreText.setFillColor(Color::White);
     scoreText.setPosition({ 20, 20 });
+
+    fpsText.setString("0 FPS");
+    fpsText.setCharacterSize(40);
+    fpsText.setFillColor(Color::White);
+    fpsText.setPosition({ 1600, 20 });
 
     // -------------------------------------
     // Audio
@@ -151,13 +161,17 @@ int main()
     // Variables de joc
     // -------------------------------------
     Clock clock;
+    Clock fpsClock;
 
     int score = 0;
+    int fpsCounter = 0;
+    int lives = 3;
 
     float timeRemaining = 6.0f;
     float timeBarWidthPerSecond = timeBarStartWidth / timeRemaining;
     float logSpeedX = 1000;
     float logSpeedY = -1500;
+    float fpsUpdateTimer = 0.f;
 
     bool paused = true;
     bool acceptInput = false;
@@ -237,7 +251,7 @@ int main()
 
                     // Posa el tronc volador a l'esquerra
                     spriteLog.setPosition({ 810, 720 });
-                    logSpeedX = -5000;
+                    logSpeedX = 5000;
                     logActive = true;
 
                     acceptInput = false;
@@ -260,7 +274,7 @@ int main()
 
                     updateBranches(branchPositions, score);
 
-                    // Posa el tronc volador a l'esquerra
+                    // Posa el tronc volador a la dreta
                     spriteLog.setPosition({ 810, 720 });
                     logSpeedX = -5000;
                     logActive = true;
@@ -323,13 +337,14 @@ int main()
                 // Mostra la lapida
                 spriteRip.setPosition({ 525, 760 });
 
-                // Amaga el jugador
-                spritePlayer.setPosition({ 2000, 660 });
-
                 // Canvia el text del missatge
                 messageText.setString("SQUISHED!");
 
+                textRect = messageText.getLocalBounds();
+                messageText.setOrigin({ textRect.position.x + textRect.size.x / 2.0f, textRect.position.y + textRect.size.y / 2.0f });
+
                 deathSound.play();
+                lives - 1;
             }
         }
 
@@ -368,9 +383,31 @@ int main()
         
         window.draw(timeBar);
 
-        if (paused) window.draw(messageText);
+        window.draw(fpsText);
+
+        if (paused) {
+            window.draw(messageText);
+        }
 
         window.display();
+
+        // -------------------------------------
+        // Comptador d'FPS
+        // -------------------------------------
+        fpsCounter++; // Suma un frame
+        
+        float elapsed = fpsClock.getElapsedTime().asSeconds();
+
+        if (elapsed >= FPS_UPDATE_INTERVAL) {
+            float fps = fpsCounter / elapsed;
+
+            stringstream fpsStream;
+            fpsStream << static_cast<int>(fps) << " FPS";
+            fpsText.setString(fpsStream.str());
+
+            fpsCounter = 0;
+            fpsClock.restart();
+        }
     }
 
     return 0;
