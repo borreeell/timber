@@ -25,7 +25,7 @@ const float timeBarHeight = 80;
 const float AXE_POSITION_LEFT = 700;
 const float AXE_POSITION_RIGHT = 1075;
 
-const float FPS_UPDATE_INTERVAL = 5.0f; // Cada 0.5 segons
+const float FPS_UPDATE_INTERVAL = 5.0f; // Cada 5 segons
 
 enum class side { LEFT, RIGHT, NONE };
 
