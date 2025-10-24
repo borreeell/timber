@@ -9,6 +9,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
+#include "funcions.h"
+
 // Espais de noms
 using namespace std;
 using namespace sf;
@@ -17,7 +19,6 @@ using namespace sf;
 // Enumeracions i constants globals
 // -------------------------------------
 const int NUM_CLOUDS = 3;
-const int NUM_BRANCHES = 6;
 
 const float timeBarStartWidth = 400;
 const float timeBarHeight = 80;
@@ -26,34 +27,6 @@ const float AXE_POSITION_LEFT = 700;
 const float AXE_POSITION_RIGHT = 1075;
 
 const float FPS_UPDATE_INTERVAL = 5.0f; // Cada 5 segons
-
-enum class side { LEFT, RIGHT, NONE };
-
-// -------------------------------------
-// Estructura NPC (Abella/Nuvols)
-// -------------------------------------
-struct NPC {
-    Sprite sprite;
-    bool active;
-    float speed;
-    int maxHeight;
-    int maxSpeed;
-    int sentit; // 1 = dreta, -1 esquerra
-    float posicioInicialX;
-
-    NPC(Texture& texture, int maxHeight_, int maxSpeed_, int sentit_, float posicioInicialX_)
-        :sprite(texture), active(false), speed(0),
-        maxHeight(maxHeight_), maxSpeed(maxSpeed_),
-        sentit(sentit_), posicioInicialX(posicioInicialX_) {
-    }
-}; 
-
-// -------------------------------------
-// Prototips de funcions
-// -------------------------------------
-void updateNPC(NPC&, float);
-void updateBranchSprites(side[], Sprite[]);
-void updateBranches(side branchPositions[], int seed);
 
 int main()
 {
@@ -411,60 +384,4 @@ int main()
     }
 
     return 0;
-}
-
-void updateNPC(NPC& npc, float dt) {
-    if (!npc.active) {
-        npc.speed = (rand() % npc.maxSpeed) * npc.sentit;
-        float height = static_cast<float>(rand() % npc.maxHeight);
-        npc.sprite.setPosition({ npc.posicioInicialX, height });
-        npc.active = true;
-    }
-    else {
-        npc.sprite.setPosition({
-            npc.sprite.getPosition().x + npc.speed * dt,
-            npc.sprite.getPosition().y
-        });
-        
-        if (npc.sprite.getPosition().x < -200 || npc.sprite.getPosition().x > 2000) npc.active = false;
-    }
-}
-
-void updateBranchSprites(side branchPositions[], Sprite branches[]) {
-    for (int i = 0; i < NUM_BRANCHES; i++) {
-        float height = i * 150;
-
-        if (branchPositions[i] == side::LEFT) {
-            branches[i].setPosition({ 610, height });
-            branches[i].setRotation(degrees(180));
-        }
-        else if (branchPositions[i] == side::RIGHT) {
-            branches[i].setPosition({ 1330, height });
-            branches[i].setRotation(degrees(0));
-        }
-        else {
-            branches[i].setPosition({ 3000, height });
-        }
-    }
-}
-
-void updateBranches(side branchPositions[], int seed) {
-    for (int j = NUM_BRANCHES - 1; j > 0; j--) {
-        branchPositions[j] = branchPositions[j - 1];
-    }
-
-    srand((int)time(0) + seed);
-
-    int r = rand() % 5;
-    switch (r) {
-        case 0:
-            branchPositions[0] = side::LEFT;
-            break;
-        case 1:
-            branchPositions[0] = side::RIGHT;
-            break;
-        default:
-            branchPositions[0] = side::NONE;
-            break;
-    }
 }
