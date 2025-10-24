@@ -18,6 +18,5 @@ Basat en el clàssic Timberman, però amb millores visuals, HUD optimitzada, etc
 ## 🖼️ Captures de pantalla
 [Game Screenshot](images/screenshot1.png)
 
-
 ## 📽️ Vídeo demostratiu
-[🎥 Mira el vídeo](https://youtu.be/8AWJpKQ5Prw)
+[🎥 Mira el vídeo](https://youtu.be/A9rAknwqdJk)
