@@ -20,3 +20,6 @@ Basat en el clàssic Timberman, però amb millores visuals, HUD optimitzada, etc
 
 ## 📽️ Vídeo demostratiu
 [🎥 Mira el vídeo](https://youtu.be/A9rAknwqdJk)
+
+## Diagrama
+[Diagrama](images/diagrama.png)
