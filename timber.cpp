@@ -61,7 +61,7 @@ int main()
     // Creacio i elements visuals
     // -------------------------------------
     VideoMode vm({ 1920, 1080 });
-    RenderWindow window(vm, "Timber", State::Fullscreen);
+    RenderWindow window(vm, "Timber", State::Windowed);
     
     // Textura del fons
     Texture textureBackground("graphics/background.png");
@@ -91,7 +91,7 @@ int main()
     spriteRip.setPosition({ 600, 860 });
 
     // Textura de la destral
-    Texture textureAxe("graphics/axe.png");
+    Texture textureAxe("graphics/destral.png");
     Sprite spriteAxe(textureAxe);
     spriteAxe.setPosition({ 700, 830 });
 
@@ -103,7 +103,7 @@ int main()
     // -------------------------------------
     // Entitats mobils (Abella + Nuvols)
     // -------------------------------------
-    Texture textureBee("graphics/bee.png");
+    Texture textureBee("graphics/abella.png");
     Texture textureCloud("graphics/cloud.png");
 
     NPC bee(textureBee, 500, 400, -1, 2000);
