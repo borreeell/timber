@@ -4,6 +4,8 @@ Un clon simple del popular joc **Timberman**, desenvolupat durant les classes de
 
 ## Contingut del repositori
 - ``timber.cpp`` - Codi del joc
+- ``funcions.cpp`` - Funcions auxiliars del joc
+- ``funcions.h`` - Arxiu de capçalera amb els prototips de les funcions auxiliars
 - ``graphics/`` - Carpeta amb els grafics del joc
 - ``fonts/`` - Carpeta amb la font utilitzada per els textos del joc
 - ``sound/`` - Arxius de so del joc (S'implementara en els proxims dies)
@@ -36,6 +38,7 @@ Un clon simple del popular joc **Timberman**, desenvolupat durant les classes de
 - [x] Corregir error al tallar els troncs
 - [x] Controlar la frequencia d'actualitzacio de puntuacio i FPS
 - [X] Afegir HUD amb dades (FPS, temps)
+- [x] Dividir el codi en moduls
 
 ## Reportar errors
 Per reportar un error, informar sobre algun bug o alguna cosa que creus que es pugui millorar del joc, pots obrir un issue aqui: [Obrir issue](https://github.com/borreeell/timber/issues)
