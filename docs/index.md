@@ -1,15 +1,12 @@
 # 🌲 Timberman Game
 
-Benvingut a **Timberman**, un joc desenvolupat en **C++ amb SFML** dins el marc del projecte de *La Salle Studios*.
+Benvingut a **Timberman**, un joc desenvolupat en **C++ amb SFML** a l'assignatura de Programacio.
 
 ## 🎮 Descripció
-
 Un joc arcade on el jugador talla arbres evitant branques, mentre competeix contra el rellotge.  
 Basat en el clàssic Timberman, però amb millores visuals, HUD optimitzada, etc...
 
-
 ## 🧩 Característiques principals
-
 - 🌳 Entorn dinàmic amb *depth layering*
 - 🪓 Jugabilitat fluida amb control per tecles
 - ☁️ Núvols i abelles animats
