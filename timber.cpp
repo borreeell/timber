@@ -85,6 +85,7 @@ int main()
         NPC(textureCloud, 250, 200, 1, -200),
         NPC(textureCloud, 500, 200, 1, -200)
     };
+    bee.sprite.setScale({ -10, 10 });
 
     // -------------------------------------
     // Textos i marcador
