@@ -57,6 +57,7 @@ int main()
     Texture texturePlayer("graphics/player.png");
     Sprite spritePlayer(texturePlayer);
     spritePlayer.setPosition({ 580, 720 });
+    spritePlayer.setScale({ 2.5, 2.5 });
 
     // Textura de la lapida
     Texture textureRip("graphics/rip.png");

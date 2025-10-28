@@ -5,8 +5,10 @@
 
 void updateNPC(NPC& npc, float dt) {
     if (!npc.active) {
-        npc.speed = (rand() % npc.maxSpeed) * npc.sentit;
+        float minSpeed = npc.maxSpeed * 0.5f; // Velocitat minima de l'abella (50% de la maxima)
         float height = static_cast<float>(rand() % npc.maxHeight);
+
+        npc.speed = (minSpeed + rand() % (npc.maxSpeed - (int)minSpeed)) * npc.sentit;
         npc.sprite.setPosition({ npc.posicioInicialX, height });
         npc.active = true;
     }
